@@ -10,6 +10,10 @@ app.get('/', (req, res) => { // req: request, res: response
 app.get('/api/pacientes', (req, res) => { // req: request, res: response
     res.send('Listado de Pacientes'); // envia una respuesta
 });
+app.get('/api/paciente/:documento', (req, res) => { // req: request, res: response
+
+    res.send('Consulta del Paciente Documento Nº:'+req.params.documento); // 
+});
 // GET /
 app.get('/api/tratamientos', (req, res) => { // req: request, res: response
     res.send('Listado de Tratamientos'); // envia una respuesta
