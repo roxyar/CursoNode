@@ -1,4 +1,6 @@
 const express = require('express'); // importar express
+//const globalConstants = require('../const/globalConstants.js')
+
 const app = express(); // crear una instancia de express
 
 // GET /
@@ -8,6 +10,7 @@ app.get('/', (req, res) => { // req: request, res: response
 
 // GET /
 app.get('/api/pacientes', (req, res) => { // req: request, res: response
+  //  var a = globalConstants.NOMBRE_DEFAULT;
     res.send('Listado de Pacientes'); // envia una respuesta
 });
 app.get('/api/paciente/:documento', (req, res) => { // req: request, res: response
