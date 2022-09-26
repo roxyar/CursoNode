@@ -1,47 +1,42 @@
 
 const models = require("../database/models/index")
-const errors = require("../const/errors")
 const medico = require("../database/models/medico")
+const errors = require("../const/errors")
 
 
 module.exports = {
 
     listar: async (req, res, next) => {
         try {
-            const pac = await models.paciente.findAll()
-               
+            const medi = await models.medico.findAll()
             
-            if (!pac) return next(errors.PacienteInexistente)
+
+            if (!medi) return next(errors.MedicoInexistente)
 
             res.json({
                 success: true,
                 data: {
-                    paciente: pac
+                    medico: medi
                 }
             })
-
-        } catch (err) {
+         } catch (err) {
             return next(err)
         }
-        
     },
 
-    listarPaciente: async (req, res, next) => {
+    listarMedico: async (req, res, next) => {
         try {
-            const paci = await models.paciente.findOne({
+            const medi = await models.medico.findOne({
                 where: {
-                    id: req.params.idPaciente
-                },
-                include:[{
-                    model: models.medico
-                }]
+                    id: req.params.idMedico
+                }
             })
-            if (!paci) return next(errors.PacienteInexistente)
+            if (!medi) return next(errors.MedicoInexistente)
 
             res.json({
                 success: true,
                 data: {
-                    paciente: paci
+                    medico: medi
                 }
             })
 
@@ -53,19 +48,19 @@ module.exports = {
 
     crear: async (req, res, next) => {
         try {
-            const paci = await models.paciente.create(req.body)
+            const medi = await models.medico.create(req.body)
 
             res.json({
                 success: true,
                 data: {
-                    id: paci.id,
-                    mensaje: "paciente creado con exito"
+                    id: medi.id
                 }
             })
 
         } catch (err) {
             return next(err)
         }
+        
     },
 
     prueba: async (req, res) => {

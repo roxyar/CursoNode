@@ -1,4 +1,4 @@
-const express = require('express'); // importar express
+/*const express = require('express'); // importar express
 //const globalConstants = require('../const/globalConstants.js')
 
 const app = express(); // crear una instancia de express
@@ -29,3 +29,4 @@ app.get('/api/medicos', (req, res) => { // req: request, res: response
 
 app.listen(5000); // escucha en el puerto 5000
 console.log('Servidor corriendo en el puerto 5000');
+*/

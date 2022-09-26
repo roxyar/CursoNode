@@ -15,6 +15,7 @@ module.exports = {
                     nombre: "Juan",
                     apellido: "Lpez",
                     email: "JuanL@prueba.com",
+                    documento:"12222222",
                     obra_social: "IOMA",
                     numero_afiliado:"11212122/99"
                 }
