@@ -1,6 +1,5 @@
 
 const models = require("../database/models/index")
-const medico = require("../database/models/medico")
 
 
 module.exports = {
@@ -9,19 +8,19 @@ module.exports = {
         
     },
 
-    listarMedico: async (req, res, next) => {
+    listarPaciente: async (req, res, next) => {
         try {
-            const medico = await models.medico.findOne({
+            const paciente = await models.paciente.findOne({
                 where: {
-                    id: req.params.idMedico
+                    id: req.params.idPaciente
                 }
             })
-            if (!medico) return next(errors.MedicoInexistente)
+            if (!paciente) return next(errors.PacienteInexistente)
 
             res.json({
                 success: true,
                 data: {
-                    medico: medico
+                    paciente: paciente
                 }
             })
 

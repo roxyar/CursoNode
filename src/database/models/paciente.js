@@ -30,6 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     numero_afiliado:{
         type: DataTypes.STRING,
     },
+    edad:{
+      type:DataTypes.INTEGER,
+    },
    
     createdAt: { 
       type: DataTypes.DATE, 
@@ -53,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Medico.associate = models => {
-    Medico.hasMany(models.Paciente)
+    Medico.belongsTo(models.Paciente)
   }
 
   return Paciente

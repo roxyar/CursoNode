@@ -1,8 +1,12 @@
- {
+ // importo el archivo de constantes globales
+const globalConstants = require('../../const/globalConstants')
+
+module.exports = {
+ 
   "development": {
     "username": "root",
     "password": "",
-    "database": "cursonode",
+    "database": "nodefinal",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

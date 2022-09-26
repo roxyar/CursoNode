@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false 
     },
     apellido: {
+      
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -48,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Medico.associate = models => {
-    
+    Medico.hasMany(models.Paciente)
   }
 
   return Medico
