@@ -14,7 +14,7 @@ const configuracionApi = (app) => { // configurar la api
 
 const configuracionRouter = (app) => { // configurar las rutas
   app.use('/api/', routerConfig.rutas_init()) // para acceder a las rutas de la api siempre deberá empezar con /api/
-
+  app.use('/',routerConfig.rutas_auth())
 
   app.use(function (req, res, next) { 
     next(createError(404)) // si no se encuentra la ruta, se envia un error 404

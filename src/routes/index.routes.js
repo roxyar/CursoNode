@@ -5,13 +5,23 @@ const { Router } = require("express"); // importar express
 
 const medicoRoutes = require("./medico.routes") // importar el archivo de rutas de usuarios
 const pacienteRoutes = require("./paciente.routes") // importar el archivo de rutas de usuarios
+const authRoutes = require("./auth.routes")
+const decodeJWT =require("../middlewares/decodeJWT");
+const { decode } = require("jsonwebtoken");
 const rutas_init = () => { // aca se ponen todas las rutas que existen
   const router = Router() // crear una instancia de express.Router()
-  router.use("/paciente",pacienteRoutes)
+  router.use("/paciente",decodeJWT,pacienteRoutes)
 
-  router.use("/medico", medicoRoutes) 
+  router.use("/medico",decodeJWT, medicoRoutes) 
 
   return router // retornar el router
 };
 
-module.exports = { rutas_init } // exportar el archivo de rutas de la api
+const rutas_auth=()=>{
+  const router =Router()
+  router.use("/auth",authRoutes)
+  return router
+  
+}
+
+module.exports = { rutas_init ,rutas_auth} // exportar el archivo de rutas de la api

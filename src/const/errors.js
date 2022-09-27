@@ -15,6 +15,18 @@ module.exports = {
     'MedicoInexistente': {
         code: 1003,
         message: 'No se encontro el medico'
+    },
+    'CredencialesInvalidas': {
+        code: 1004,
+        message: 'Credenciales inválidas'
+    },
+    'UsuarioNoAutorizado': {
+        code: 1005,
+        message: 'Usuario no autorizado'
+    },
+    'SesionExpirada': {
+        code: 1006,
+        message: 'Sesión expirada'
     }
 
 
