@@ -67,9 +67,40 @@ module.exports = {
             return next(err)
         }
     },
+    modificar: async (req, res, next) => {
+        try {
+            const elpaciente = await models.paciente.findOne({
+                where: {
+                    documento: req.body.documento
+                }
+            })
 
-    prueba: async (req, res) => {
-        
+            if (!elpaciente) return next(errors.PacienteInexistente)
+            
+          elpaciente.set({
+            nombre: req.body.nombre,
+                       
+            obra_social:req.body.obra_social
+          });
+
+          //  await elpaciente.update({ nombre: req.body.nombre })
+            // The database now has "Ada" for name, but still has the default "green" for favorite color
+            await elpaciente.save()
+
+            res.json({
+                success: true,
+                data: {
+                    id: elpaciente.nombre,
+                    mensaje: "paciente modificado con exito"
+                }
+            })
+
+        } catch (err) {
+            return next(err)
+        }
+    
+    
+    
     }
 
 

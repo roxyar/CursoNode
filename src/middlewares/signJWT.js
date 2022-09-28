@@ -13,6 +13,8 @@ module.exports = function (usuario) { // recibe el usuario por parametro
            
             {
                 expiresIn: '3000m' // expira en 3 horas
+                
+              //  expiresIn: '1m' // expira en 3 horas
             }
         )
         return token // devuelvo el token

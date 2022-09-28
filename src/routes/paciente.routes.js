@@ -9,6 +9,7 @@ router.get('/listar', pacienteControllers.listar)
 //res.send('Listado de PAcientes desde controller');
 
 router.post('/nuevo', pacienteControllers.crear)
+router.post('/modifica', pacienteControllers.modificar)
 router.get('/:idPaciente', pacienteControllers.listarPaciente)
 
 module.exports = router;

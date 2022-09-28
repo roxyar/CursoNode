@@ -61,10 +61,6 @@ module.exports = {
             return next(err)
         }
         
-    },
-
-    prueba: async (req, res) => {
-        
     }
 
 

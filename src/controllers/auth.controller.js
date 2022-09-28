@@ -11,7 +11,8 @@ module.exports = {
             // 1. Verifico que el usuario exista solo comparando con el email
             const user = await models.usuario.findOne({
                 where: {
-                    email: req.body.email
+                    email: req.body.email,
+                    activo:1
                 }
             })
             var contraseniaCoincide = false
